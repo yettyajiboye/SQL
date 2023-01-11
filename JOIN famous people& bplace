@@ -1,0 +1,31 @@
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    song TEXT,
+    grammy INTEGER);
+    
+INSERT INTO singers (name,song,grammy) VALUES (" Beyonce", "lemonade", "3");
+INSERT INTO singers (name,song, grammy) VALUES ("ELTON JOHN", "Bennie and the jets", "2");
+INSERT INTO singers (name,song,grammy) VALUES (" Michael Jackson", "thiller", "6");
+INSERT INTO singers (name,song,grammy) VALUES ("Bruno Mars", "uptown funk", "2");
+INSERT INTO singers (name,song,grammy) VALUES
+("Jay Z", "drunk in love", "1");
+
+CREATE TABLE birthplace ( 
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    city TEXT);
+    
+INSERT INTO birthplace VALUES (1,"Huston");
+INSERT INTO birthplace VALUES (2,"United kingdom");
+INSERT INTO birthplace VALUES (3,"Indiana");
+INSERT INTO birthplace VALUES (4,"Hawaii");
+INSERT INTO birthplace VALUES (5,"New York");
+
+/*SELECT * FROM singers;
+SELECT * FROM birthplace;*/
+
+SELECT s.name, s.song, s.grammy, b.city
+    FROM singers s 
+    LEFT OUTER JOIN birthplace b
+    ON s.id=b.id.city
+    ORDER BY s.name;
